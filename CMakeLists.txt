@@ -3,4 +3,4 @@ project(Checklist)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Checklist main.cpp Version.h)
+add_executable(Checklist main.cpp Version.h ListItem.cpp ListItem.h)

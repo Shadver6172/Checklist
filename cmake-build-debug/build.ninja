@@ -55,6 +55,12 @@ build CMakeFiles/Checklist.dir/main.cpp.obj: CXX_COMPILER__Checklist_Debug C$:/U
   OBJECT_DIR = CMakeFiles\Checklist.dir
   OBJECT_FILE_DIR = CMakeFiles\Checklist.dir
 
+build CMakeFiles/Checklist.dir/ListItem.cpp.obj: CXX_COMPILER__Checklist_Debug C$:/Users/marco/CLionProjects/Checklist/ListItem.cpp || cmake_object_order_depends_target_Checklist
+  DEP_FILE = CMakeFiles\Checklist.dir\ListItem.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\Checklist.dir
+  OBJECT_FILE_DIR = CMakeFiles\Checklist.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Checklist
@@ -63,7 +69,7 @@ build CMakeFiles/Checklist.dir/main.cpp.obj: CXX_COMPILER__Checklist_Debug C$:/U
 #############################################
 # Link the executable Checklist.exe
 
-build Checklist.exe: CXX_EXECUTABLE_LINKER__Checklist_Debug CMakeFiles/Checklist.dir/main.cpp.obj
+build Checklist.exe: CXX_EXECUTABLE_LINKER__Checklist_Debug CMakeFiles/Checklist.dir/main.cpp.obj CMakeFiles/Checklist.dir/ListItem.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Checklist.dir
