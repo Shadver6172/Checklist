@@ -7,17 +7,26 @@
 #include <utility>
 
 #include "string"
-#include "datetimeapi.h"
-
+#include <iostream>
 class ListItem {
 private:
     std::string Title;
-    bool status;
-    int id;
-public:
-    ListItem(std::string title, bool status, int id=-1) : Title(std::move(title)), status(FALSE) {}
 
-    
+public:
+    ListItem(const std::string &title) : Title(title) {}
+
+    const std::string getTitle() const {
+        return Title;
+    }
+
+    void setTitle(const std::string &title) {
+        Title = title;
+    }
+
+
+
+
+
 };
 
 
