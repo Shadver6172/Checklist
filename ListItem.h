@@ -17,8 +17,10 @@ private:
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &a, const unsigned version){
-        a & Title & Description;
+        a & Title;
+        a & Description;
     }
+
 public:
     ListItem(){}
 
@@ -39,6 +41,7 @@ public:
     void setDescription(const std::string &description) {
         Description = description;
     }
+
 };
 
 

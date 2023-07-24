@@ -2,19 +2,20 @@
 #include <fstream>
 #include "Version.h"
 #include "ListItem.cpp"
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
+#include "Tasks.cpp"
+#include <vector>
+
 using namespace std;
-void Save_New_Task(ListItem t);
+
 int main() {
     cout << VERSION << std::endl;
-    ListItem tmp("pulire casa","pulisci");
-    Save_New_Task(tmp);
+    Tasks *col=new Tasks();
+    col->load();
+    ListItem *tmp=new ListItem("Cane","Porta fuori il cane");
+    vector<ListItem> v=col->getCollection();
+    col->AddTask(*tmp);
+    col->Print();
+    col->DelTask(0);
+    col->Print();
     return 0;
-}
-void Save_New_Task(ListItem t){
-
-    std::ofstream outfile("Tasks.txt");
-    boost::archive::text_oarchive archive(outfile);
-    archive << t;
 }
