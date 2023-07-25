@@ -31,8 +31,9 @@ public:
     void setCollection(const vector<ListItem> &collection) {
         Tasks::collection = collection;
     }
-    void AddTask( const ListItem& );
+    void AddTask( ListItem );
     void DelTask (const int i );
+    void modTask( const int i, const string& Title, const string& descr );
     void Print() const;
     void save() const;
     void load();

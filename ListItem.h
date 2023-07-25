@@ -22,11 +22,11 @@ private:
     }
 
 public:
-    ListItem(){}
+    ListItem() {}
 
-    ListItem(const std::string &title, const std::string &description) : Title(title), Description(description) {}
+    ListItem(std::string title, std::string description) : Title(title), Description(description) {}
 
-    const std::string getTitle() const {
+    std::string getTitle() const {
         return Title;
     }
 

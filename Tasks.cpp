@@ -10,7 +10,7 @@ void Tasks::Print() const
     std::cout <<i++<< " || Title: " << it->getTitle()<<" || " << "Description: " <<it->getDescription()<<"\n";
 }
 
-void Tasks::AddTask( const ListItem& Task )
+void Tasks::AddTask(  ListItem Task )
 {
     collection.push_back( Task );
 
@@ -18,6 +18,12 @@ void Tasks::AddTask( const ListItem& Task )
 void Tasks::DelTask( const int i )
 {
     collection.erase(collection.begin()+i);
+}
+void Tasks::modTask( const int i, const string& Title, const string& Descr )
+{
+    collection[i].setTitle(Title);
+    collection[i].setDescription(Descr);
+
 }
 void Tasks::save() const {
     std::ofstream outfile("Tasks.dat");
