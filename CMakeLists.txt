@@ -1,13 +1,21 @@
-cmake_minimum_required(VERSION 3.24.2)
+cmake_minimum_required(VERSION 3.2)
 project(Checklist)
+set(CMAKE_CXX_STANDARD 17)
+add_executable(Checklist main.cpp)
 
-set(CMAKE_CXX_STANDARD 14)
-set(BOOST_NO_SYSTEM_PATHS ON)
-set(Boost_ARCHITECTURE -x64)
-FIND_PACKAGE( Boost 1.70.0 COMPONENTS serialization REQUIRED )
-add_executable(Checklist main.cpp )
-include_directories(${Boost_INCLUDE_DIRS})
+
+
+set(Boost_DEBUG 1)
+
+set(Boost_INCLUDE_DIR c:/mingw/include/)
+set(Boost_LIBRARY_DIR c:/mingw/lib/)
+find_package(Boost COMPONENTS serialization REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
 target_link_libraries(Checklist ${Boost_LIBRARIES})
+
+
+
+
 
 
 
