@@ -1,6 +1,3 @@
-//
-// Created by marco on 20/10/2022.
-//
 
 #ifndef CHECKLIST_TASKS_H
 #define CHECKLIST_TASKS_H
@@ -12,6 +9,7 @@
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
+#include <sys/stat.h>
 
 using namespace std;
 class Tasks {
@@ -33,6 +31,7 @@ public:
     }
     void AddTask( ListItem );
     void DelTask (const int i );
+    ListItem getTask (const int i);
     void modTask( const int i, const string& Title, const string& descr );
     void Print() const;
     void save() const;

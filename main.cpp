@@ -12,7 +12,7 @@ int main() {
     int ON=1,x;
     string t,d;
     Tasks *col=new Tasks();
-    col->load();//TODO vedere che cavolo succede
+    col->load();
     ListItem *tmp;
     while(ON) {
         cout<< "Seleziona un operazione :\n 1 | Aggiungi nuova task \n 2 | Modifica task \n 3 | Elimina Task \n 4 | Mostra task \n 5 | Chiudi programma\n";

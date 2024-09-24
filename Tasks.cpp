@@ -1,6 +1,3 @@
-//
-// Created by marco on 20/10/2022.
-//
 
 #include "Tasks.h"
 void Tasks::Print() const
@@ -9,7 +6,9 @@ void Tasks::Print() const
     for (auto it = collection.begin() ; it != collection.end(); ++it)
     std::cout <<i++<< " || Title: " << it->getTitle()<<" || " << "Description: " <<it->getDescription()<<"\n";
 }
-
+ListItem Tasks::getTask(const int i) {
+    return collection[i];
+}
 void Tasks::AddTask(  ListItem Task )
 {
     collection.push_back( Task );
@@ -32,8 +31,13 @@ void Tasks::save() const {
     
 }
 void Tasks::load() {
+    const char* file = "cmake-build-release-mingw/Tasks.dat";
 
-    std::ifstream ifs( "Tasks.dat" );
-    boost::archive::text_iarchive ar( ifs );
-    ar & collection;
+    struct stat sb;
+
+    if (stat(file, &sb) == 0 && !(sb.st_mode & S_IFDIR)) {
+        std::ifstream ifs("Tasks.dat");
+        boost::archive::text_iarchive ar(ifs);
+        ar & collection;
+    }
 }
