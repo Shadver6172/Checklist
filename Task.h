@@ -2,29 +2,32 @@
 // Created by marco on 31/07/2022.
 //
 
-#ifndef CHECKLIST_LISTITEM_H
-#define CHECKLIST_LISTITEM_H
+#ifndef CHECKLIST_TASK_H
+#define CHECKLIST_TASK_H
 #include <utility>
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
 #include "string"
 #include <iostream>
-class ListItem {
+#include "ctime"
+class Task {
 private:
     std::string Title;
     std::string Description;
+    std::string Date;
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive &a, const unsigned version){
         a & Title;
         a & Description;
+        a & Date;
     }
 
 public:
-    ListItem() {}
+    Task() {}
 
-    ListItem(std::string title, std::string description) : Title(title), Description(description) {}
+    Task(std::string title, std::string description, std::string Date) : Title(title), Description(description) , Date(Date) {}
 
     std::string getTitle() const {
         return Title;
@@ -42,7 +45,15 @@ public:
         Description = description;
     }
 
+    const std::string &getDate() const {
+        return Date;
+    }
+
+    void setDate(const std::string &date) {
+        Date = date;
+    }
+
 };
 
 
-#endif //CHECKLIST_LISTITEM_H
+#endif //CHECKLIST_TASK_H

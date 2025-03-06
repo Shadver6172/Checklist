@@ -1,6 +1,6 @@
 
 #include "gtest/gtest.h"
-#include "../Tasks.h"
+#include "../TaskList.h"
 class TaskSuite : public ::testing::Test {
 
 
@@ -11,8 +11,8 @@ protected:
         T->AddTask(L);
         T->save();
     }
-    Tasks *T= new Tasks();
-    ListItem L;
+    TaskList *T= new TaskList();
+    Task L;
 };
 
 TEST_F(TaskSuite,LoadTest){

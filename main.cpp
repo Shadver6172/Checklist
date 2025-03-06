@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "Version.h"
-#include "ListItem.cpp"
-#include "Tasks.cpp"
+#include "Task.cpp"
+#include "TaskList.cpp"
 #include <vector>
 
 using namespace std;
@@ -11,9 +11,9 @@ int main() {
     cout << VERSION << std::endl;
     int ON=1,x;
     string t,d;
-    Tasks *col=new Tasks();
+    TaskList *col=new TaskList();
     col->load();
-    ListItem *tmp;
+    Task *tmp;
     while(ON) {
         cout<< "Seleziona un operazione :\n 1 | Aggiungi nuova task \n 2 | Modifica task \n 3 | Elimina Task \n 4 | Mostra task \n 5 | Chiudi programma\n";
         cin>>x;
@@ -23,7 +23,7 @@ int main() {
                 cin>>t;
                 cout<< "Inserisci Descrizione\n";
                 cin>>d;
-                tmp=new ListItem(t,d);
+                tmp=new Task(t, d);
                 col->AddTask(*tmp);
                 break;
             case 2:
