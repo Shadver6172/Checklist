@@ -4,6 +4,7 @@
 
 #ifndef CHECKLIST_TASK_H
 #define CHECKLIST_TASK_H
+
 #include <utility>
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
@@ -11,14 +12,17 @@
 #include "string"
 #include <iostream>
 #include "ctime"
+
 class Task {
 private:
     std::string Title;
     std::string Description;
     std::string Date;
+
     friend class boost::serialization::access;
+
     template<class Archive>
-    void serialize(Archive &a, const unsigned version){
+    void serialize(Archive &a, const unsigned version) {
         a & Title;
         a & Description;
         a & Date;
@@ -27,7 +31,8 @@ private:
 public:
     Task() {}
 
-    Task(std::string title, std::string description, std::string Date) : Title(title), Description(description) , Date(Date) {}
+    Task(std::string title, std::string description, std::string Date) : Title(title), Description(description),
+                                                                         Date(Date) {}
 
     std::string getTitle() const {
         return Title;

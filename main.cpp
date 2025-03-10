@@ -23,7 +23,7 @@ int main() {
                 cin>>t;
                 cout<< "Inserisci Descrizione\n";
                 cin>>d;
-                tmp=new Task(t, d);
+                tmp=new Task(t, d,d);
                 col->AddTask(*tmp);
                 break;
             case 2:

@@ -1,22 +1,19 @@
 
-#ifndef CHECKLIST_TASKLIST_H
-#define CHECKLIST_TASKLIST_H
-
-#include "Task.cpp"
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
-#include <sys/stat.h>
+#include "TaskList.h"
+
 
 using namespace std;
 
-class TaskList {
+class TaskCollection {
 private:
     string Title;
-    vector<Task> collection;
+    vector<TaskList> collection;
 
     friend class boost::serialization::access;
 
@@ -27,30 +24,26 @@ private:
     }
 
 public:
-    TaskList(const string &title, const vector<Task> &collection) : Title(title), collection(collection) {}
+    TaskCollection(const string &title, const vector<TaskList> &collection) : Title(title), collection(collection) {}
 
-    TaskList() {}
-
-    explicit TaskList(const string &title);
+    TaskCollection();
 
     const string &getTitle() const;
 
     void setTitle(const string &title);
 
-    void AddTask(Task);
+    void AddTaskList(TaskList i);
 
-    void DelTask(int i);
+    void DelTaskList(int i);
 
-    Task getTask(int i);
-
-    void modTask(int i, const string &Title, const string &descr);
-
-    void Print() const;
+    TaskList getTaskList(int i);
 
     void save() const;
 
     void load();
+
+    const vector<TaskList> &getCollection() const;
+
+    void setCollection(const vector<TaskList> &collection);
 };
 
-
-#endif //CHECKLIST_TASKLIST_H

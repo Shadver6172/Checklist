@@ -1,37 +1,41 @@
 
 #include "TaskList.h"
-void TaskList::Print() const
-{
-    int i=0;
-    for (auto it = collection.begin() ; it != collection.end(); ++it)
-    std::cout <<i++<< " || Title: " << it->getTitle()<<" || " << "Description: " <<it->getDescription()<<"\n";
+
+void TaskList::Print() const {
+    int i = 0;
+    for (auto it = collection.begin(); it != collection.end(); ++it)
+        std::cout << i++ << " || Title: " << it->getTitle() << " || " << "Description: " << it->getDescription()
+                  << "\n";
 }
+
 Task TaskList::getTask(const int i) {
     return collection[i];
 }
-void TaskList::AddTask(Task Task )
-{
-    collection.push_back( Task );
+
+void TaskList::AddTask(Task Task) {
+    collection.push_back(Task);
 
 }
-void TaskList::DelTask(const int i )
-{
-    collection.erase(collection.begin()+i);
+
+void TaskList::DelTask(const int i) {
+    collection.erase(collection.begin() + i);
 }
-void TaskList::modTask(const int i, const string& Title, const string& Descr )
-{
+
+void TaskList::modTask(const int i, const string &Title, const string &Descr) {
     collection[i].setTitle(Title);
     collection[i].setDescription(Descr);
 
 }
+
 void TaskList::save() const {
     std::ofstream outfile("TaskList.dat");
     boost::archive::text_oarchive archive(outfile);
     archive << collection;
-    
+
 }
+
 void TaskList::load() {
-    const char* file = "cmake-build-release-mingw/TaskList.dat";
+    const char *file = "cmake-build-release-mingw/TaskList.dat";
 
     struct stat sb;
 
@@ -49,5 +53,6 @@ const string &TaskList::getTitle() const {
 void TaskList::setTitle(const string &title) {
     Title = title;
 }
+
 
 
