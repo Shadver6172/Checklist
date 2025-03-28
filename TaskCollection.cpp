@@ -30,7 +30,7 @@ TaskList TaskCollection::getTaskList(int i) {
 }
 
 void TaskCollection::save() const {
-    std::ofstream outfile("TaskList.dat");
+    std::ofstream outfile("Tasks.dat");
     boost::archive::text_oarchive archive(outfile);
     archive << Title;
     archive << collection;
@@ -38,12 +38,12 @@ void TaskCollection::save() const {
 }
 
 void TaskCollection::load() {
-    const char *file = "cmake-build-release-mingw/TaskList.dat";
+    const char *file = "Tasks.dat";
 
     struct stat sb;
 
     if (stat(file, &sb) == 0 && !(sb.st_mode & S_IFDIR)) {
-        std::ifstream ifs("TaskList.dat");
+        std::ifstream ifs("Tasks.dat");
         boost::archive::text_iarchive ar(ifs);
         ar & Title;
         ar & collection;

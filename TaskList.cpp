@@ -8,6 +8,7 @@ void TaskList::Print() const {
                   << "\n";
 }
 
+
 Task TaskList::getTask(const int i) {
     return collection[i];
 }
@@ -34,8 +35,17 @@ void TaskList::save() const {
 
 }
 
+
+vector<Task> TaskList::get_collection()  {
+    return collection;
+}
+
+void TaskList::set_collection(const vector<Task> &collection) {
+    this->collection = collection;
+}
+
 void TaskList::load() {
-    const char *file = "cmake-build-release-mingw/TaskList.dat";
+    const char *file = "TaskList.dat";
 
     struct stat sb;
 

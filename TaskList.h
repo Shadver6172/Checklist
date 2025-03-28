@@ -49,6 +49,10 @@ public:
 
     void save() const;
 
+    vector<Task> get_collection();
+
+    void set_collection(const vector<Task> &collection);
+
     void load();
 };
 

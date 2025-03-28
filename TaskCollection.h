@@ -1,13 +1,12 @@
-
+#ifndef CHECKLIST_TASKCOLLECTION_H
+#define CHECKLIST_TASKCOLLECTION_H
 #include <iostream>
 #include <vector>
 #include <fstream>
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
-#include "TaskList.h"
-
-
+#include "TaskList.cpp"
 using namespace std;
 
 class TaskCollection {
@@ -26,7 +25,9 @@ private:
 public:
     TaskCollection(const string &title, const vector<TaskList> &collection) : Title(title), collection(collection) {}
 
-    TaskCollection();
+    TaskCollection(){};
+
+    explicit TaskCollection(const string &title);
 
     const string &getTitle() const;
 
@@ -47,3 +48,4 @@ public:
     void setCollection(const vector<TaskList> &collection);
 };
 
+#endif
