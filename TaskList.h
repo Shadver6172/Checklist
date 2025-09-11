@@ -1,8 +1,7 @@
-
 #ifndef CHECKLIST_TASKLIST_H
 #define CHECKLIST_TASKLIST_H
 
-#include "Task.cpp"
+#include "Task.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -27,17 +26,17 @@ private:
     }
 
 public:
-    TaskList(const string &title, const vector<Task> &collection) : Title(title), collection(collection) {}
+    explicit TaskList(const string &title) : Title(title) {
+    }
 
-    TaskList() {}
-
-    explicit TaskList(const string &title);
+    TaskList() {
+    }
 
     const string &getTitle() const;
 
     void setTitle(const string &title);
 
-    void AddTask(Task);
+    void AddTask(const Task &);
 
     void DelTask(int i);
 

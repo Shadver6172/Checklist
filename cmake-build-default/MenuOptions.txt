@@ -1,0 +1,9 @@
+Mostra Attività
+Modifica Attività
+Cambia Nome Lista/Collezione
+Aggiungi attività
+Crea nuova lista
+Elimina Attività
+Elimina Lista
+
+Premi "F1" per uscire

@@ -17,7 +17,6 @@ void TaskCollection::setTitle(const std::string &title) {
 }
 
 void TaskCollection::AddTaskList(TaskList i) {
-
     collection.push_back(i);
 }
 
@@ -25,7 +24,7 @@ void TaskCollection::DelTaskList(int i) {
     collection.erase(collection.begin() + i);
 }
 
-TaskList TaskCollection::getTaskList(int i) {
+TaskList &TaskCollection::getTaskList(int i) {
     return collection[i];
 }
 
@@ -34,7 +33,6 @@ void TaskCollection::save() const {
     boost::archive::text_oarchive archive(outfile);
     archive << Title;
     archive << collection;
-
 }
 
 void TaskCollection::load() {

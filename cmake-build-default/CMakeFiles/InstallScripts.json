@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/Marc/CLionProjects/Checklist/cmake-build-default/cmake_install.cmake",
+		"/home/Marc/CLionProjects/Checklist/cmake-build-default/test/cmake_install.cmake",
+		"/home/Marc/CLionProjects/Checklist/cmake-build-default/test/lib/googletest/cmake_install.cmake",
+		"/home/Marc/CLionProjects/Checklist/cmake-build-default/test/lib/googletest/googlemock/cmake_install.cmake",
+		"/home/Marc/CLionProjects/Checklist/cmake-build-default/test/lib/googletest/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -17,7 +17,7 @@ class Task {
 private:
     std::string Title;
     std::string Description;
-    std::string Date;
+    struct tm Date;
 
     friend class boost::serialization::access;
 
@@ -25,16 +25,20 @@ private:
     void serialize(Archive &a, const unsigned version) {
         a & Title;
         a & Description;
-        a & Date;
+        a & Date.tm_mday;
+        a & Date.tm_mon;
+        a & Date.tm_year;
     }
 
 public:
-    Task() {}
+    Task() {
+    }
 
-    Task(std::string title, std::string description, std::string Date) : Title(title), Description(description),
-                                                                         Date(Date) {}
+    Task(std::string title, std::string description,  struct tm Date) : Title(title), Description(description),
+                                                                         Date(Date) {
+    }
 
-    std::string getTitle() const {
+    const std::string &getTitle() const {
         return Title;
     }
 
@@ -50,14 +54,13 @@ public:
         Description = description;
     }
 
-    const std::string &getDate() const {
+    const  struct tm &getDate() const {
         return Date;
     }
 
-    void setDate(const std::string &date) {
+    void setDate(const  struct tm &date) {
         Date = date;
     }
-
 };
 
 

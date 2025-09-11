@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wl,--dependency-file=CMakeFiles/Checklist.dir/link.d CMakeFiles/Checklist.dir/main.cpp.o -o Checklist  /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.83.0 /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.83.0 -lcurses /usr/lib/x86_64-linux-gnu/libform.so

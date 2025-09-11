@@ -5,7 +5,6 @@
 #include <fstream>
 #include <boost/serialization/vector.hpp>
 #include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
 #include "TaskList.cpp"
 using namespace std;
 
@@ -23,11 +22,12 @@ private:
     }
 
 public:
-    TaskCollection(const string &title, const vector<TaskList> &collection) : Title(title), collection(collection) {}
+    explicit TaskCollection(const string &title) : Title(title) {
+    }
 
-    TaskCollection(){};
+    TaskCollection() {
+    };
 
-    explicit TaskCollection(const string &title);
 
     const string &getTitle() const;
 
@@ -37,7 +37,7 @@ public:
 
     void DelTaskList(int i);
 
-    TaskList getTaskList(int i);
+    TaskList &getTaskList(int i);
 
     void save() const;
 

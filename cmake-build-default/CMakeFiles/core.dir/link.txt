@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcore.a CMakeFiles/core.dir/TaskList.cpp.o CMakeFiles/core.dir/TaskCollection.cpp.o CMakeFiles/core.dir/Display.cpp.o CMakeFiles/core.dir/main.cpp.o
+/usr/bin/ranlib libcore.a

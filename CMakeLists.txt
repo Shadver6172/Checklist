@@ -10,7 +10,7 @@ set(SOURCE_FILES TaskList.cpp TaskList.h Task.h
         main.cpp
 )
 add_executable(Checklist main.cpp)
-find_package(Boost COMPONENTS serialization  REQUIRED)
+find_package(Boost COMPONENTS serialization date_time REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 add_library(core ${SOURCE_FILES})
 target_link_libraries(Checklist ${Boost_LIBRARIES})

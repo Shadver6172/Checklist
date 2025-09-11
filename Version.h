@@ -7,5 +7,5 @@
 
 #include <string>
 
-static const std::string VERSION = "1.8";
+static const std::string VERSION = "2.0";
 #endif //CHECKLIST_VERSION_H
